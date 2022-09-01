@@ -74,6 +74,11 @@ output "emr_cluster_name" {
   value       = aws_emr_cluster.emr_cluster.name
 }
 
+output "emr_cluster_master_dns" {
+  description = "EMR cluster master DNS name"
+  value       = aws_emr_cluster.emr_cluster.master_public_dns
+}
+
 output "emr_service_role" {
   description = "EMR service role name"
   value       = aws_iam_role.emr_service_role.name
