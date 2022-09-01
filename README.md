@@ -1,1 +1,1 @@
-# emr-dev-with-vscode
+# EMR Remote Development
