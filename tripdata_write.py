@@ -3,7 +3,7 @@ from pyspark.sql import SparkSession
 from utils import to_timestamp_df
 
 if __name__ == "__main__":
-    spark = SparkSession.builder.appName("Trip Data").getOrCreate()
+    spark = SparkSession.builder.appName("Trip Data").enableHiveSupport().getOrCreate()
 
     dbname = "tripdata"
     tblname = "ny_taxi"
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     # write parquet
     ny_taxi.write.mode("overwrite").parquet(dest_path)
     # create glue table
-    ny_taxi.registerTempTable(tblname)
+    ny_taxi.createOrReplaceTempView(tblname)
     spark.sql(f"CREATE DATABASE IF NOT EXISTS {dbname}")
     spark.sql(f"USE {dbname}")
     spark.sql(
