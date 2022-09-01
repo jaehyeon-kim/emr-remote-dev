@@ -62,3 +62,49 @@ output "data_bucket_name" {
     for k, v in aws_s3_bucket.default_bucket : k => v.id
   }
 }
+
+# EMR
+output "emr_cluster_id" {
+  description = "EMR cluster ID"
+  value       = aws_emr_cluster.emr_cluster.id
+}
+
+output "emr_cluster_name" {
+  description = "EMR cluster name"
+  value       = aws_emr_cluster.emr_cluster.name
+}
+
+output "emr_service_role" {
+  description = "EMR service role name"
+  value       = aws_iam_role.emr_service_role.name
+}
+
+output "emr_instance_role" {
+  description = "EMR instance role name"
+  value       = aws_iam_role.emr_ec2_instance_role.name
+}
+
+output "emr_instance_profile" {
+  description = "EMR instance profile name"
+  value       = aws_iam_instance_profile.emr_ec2_instance_profile.name
+}
+
+output "emr_autoscaling_role" {
+  description = "EMR autoscaling role name"
+  value       = aws_iam_role.emr_autoscaling_role.name
+}
+
+output "emr_master_sg" {
+  description = "EMR cluster master sg"
+  value       = aws_security_group.emr_master.id
+}
+
+output "emr_slave_sg" {
+  description = "EMR cluster slave sg"
+  value       = aws_security_group.emr_slave.id
+}
+
+output "emr_vpn_access_sg" {
+  description = "EMR cluster VPN access sg"
+  value       = aws_security_group.emr_vpn_access.id
+}

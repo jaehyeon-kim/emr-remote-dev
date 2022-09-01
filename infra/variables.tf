@@ -26,6 +26,14 @@ locals {
     name      = "${local.name}-data-${data.aws_caller_identity.current.account_id}-${local.region}"
   }
 
+  emr = {
+    release_label        = "emr-6.7.0"
+    applications         = ["Spark", "Livy", "JupyterEnterpriseGateway", "Hive"]
+    instance_type        = "m5.xlarge"
+    instance_count       = 1
+    ebs_root_volume_size = 80
+  }
+
   tags = {
     Name        = local.name
     Environment = local.environment
