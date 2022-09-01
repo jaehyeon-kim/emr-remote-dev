@@ -1,4 +1,3 @@
-import sys
 from pyspark.sql import SparkSession
 
 from utils import to_timestamp_df
