@@ -1,8 +1,4 @@
-from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
-
-spark = SparkSession.builder.appName("Trip Data").master("local[*]").getOrCreate()
-spark.sparkContext.setLogLevel("FATAL")
 
 dbname = "tripdata"
 tblname = "ny_taxi"
