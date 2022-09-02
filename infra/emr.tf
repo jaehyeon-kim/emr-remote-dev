@@ -9,7 +9,7 @@ resource "aws_emr_cluster" "emr_cluster" {
   log_uri                           = "s3n://${aws_s3_bucket.default_bucket[0].id}/elasticmapreduce/"
   step_concurrency_level            = 256
   keep_job_flow_alive_when_no_steps = true
-  termination_protection            = true
+  termination_protection            = false
 
   ec2_attributes {
     key_name                          = aws_key_pair.emr_key_pair.key_name
