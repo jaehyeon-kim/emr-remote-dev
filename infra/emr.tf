@@ -49,6 +49,8 @@ resource "aws_emr_cluster" "emr_cluster" {
   EOF
 
   tags = local.tags
+
+  depends_on = [module.vpc]
 }
 
 resource "aws_emr_managed_scaling_policy" "emr_scaling_policy" {
