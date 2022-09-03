@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     dbname = "tripdata"
     tblname = "ny_taxi"
-    bucket_name = "emr-remote-development-data-590312749310-ap-southeast-2"
+    bucket_name = "emr-remote-dev-590312749310-ap-southeast-2"
     dest_path = f"s3://{bucket_name}/{tblname}/"
     src_path = "s3://aws-data-analytics-workshops/shared_datasets/tripdata/"
     # read csv
